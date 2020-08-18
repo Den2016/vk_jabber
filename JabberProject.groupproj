@@ -1,0 +1,108 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{B8CDC1C6-3AFF-426F-8FF5-08529682639E}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="vk_jabber.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\KKMSrv\KKMSrv.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\KKMSrv\KKMClient_test.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Test_Jabber\Test_Jabber.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\merchant\merchant.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\vk_rest\Test_REST.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\vk_rest\vk_rest.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="vk_jabber">
+        <MSBuild Projects="vk_jabber.dproj"/>
+    </Target>
+    <Target Name="vk_jabber:Clean">
+        <MSBuild Projects="vk_jabber.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="vk_jabber:Make">
+        <MSBuild Projects="vk_jabber.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="KKMSrv">
+        <MSBuild Projects="..\KKMSrv\KKMSrv.dproj"/>
+    </Target>
+    <Target Name="KKMSrv:Clean">
+        <MSBuild Projects="..\KKMSrv\KKMSrv.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="KKMSrv:Make">
+        <MSBuild Projects="..\KKMSrv\KKMSrv.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="KKMClient_test">
+        <MSBuild Projects="..\KKMSrv\KKMClient_test.dproj"/>
+    </Target>
+    <Target Name="KKMClient_test:Clean">
+        <MSBuild Projects="..\KKMSrv\KKMClient_test.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="KKMClient_test:Make">
+        <MSBuild Projects="..\KKMSrv\KKMClient_test.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Test_Jabber">
+        <MSBuild Projects="Test_Jabber\Test_Jabber.dproj"/>
+    </Target>
+    <Target Name="Test_Jabber:Clean">
+        <MSBuild Projects="Test_Jabber\Test_Jabber.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Test_Jabber:Make">
+        <MSBuild Projects="Test_Jabber\Test_Jabber.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="merchant">
+        <MSBuild Projects="..\merchant\merchant.dproj"/>
+    </Target>
+    <Target Name="merchant:Clean">
+        <MSBuild Projects="..\merchant\merchant.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="merchant:Make">
+        <MSBuild Projects="..\merchant\merchant.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Test_REST">
+        <MSBuild Projects="..\vk_rest\Test_REST.dproj"/>
+    </Target>
+    <Target Name="Test_REST:Clean">
+        <MSBuild Projects="..\vk_rest\Test_REST.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Test_REST:Make">
+        <MSBuild Projects="..\vk_rest\Test_REST.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="vk_rest">
+        <MSBuild Projects="..\vk_rest\vk_rest.dproj"/>
+    </Target>
+    <Target Name="vk_rest:Clean">
+        <MSBuild Projects="..\vk_rest\vk_rest.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="vk_rest:Make">
+        <MSBuild Projects="..\vk_rest\vk_rest.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="vk_jabber;KKMSrv;KKMClient_test;Test_Jabber;merchant;Test_REST;vk_rest"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="vk_jabber:Clean;KKMSrv:Clean;KKMClient_test:Clean;Test_Jabber:Clean;merchant:Clean;Test_REST:Clean;vk_rest:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="vk_jabber:Make;KKMSrv:Make;KKMClient_test:Make;Test_Jabber:Make;merchant:Make;Test_REST:Make;vk_rest:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
